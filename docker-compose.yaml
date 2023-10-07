@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  product-ms:
+    image: sarptom/federation-orders-ms:latest
+    environment:
+      - NODE_ENV=development
+    restart: always
+
+  product-ms-db:
+    image: postgress
+
+  orders-ms:
+    image: sarptom/federation-orders-ms:latest
+    environment:
+      - NODE_ENV=development
+    restart: always
+
+  orders-ms-db:
+    image: postgress
+
+  users-ms:
+    image: sarptom/federation-users-ms:latest
+    environment:
+      - NODE_ENV=development
+    restart: always
+
+  users-ms-db:
+    image: postgress
+
+  kafka:
+    image: kafka
+
+  zookeeper:
+    image: zookeeper
+
+  federation-router:
+    image: federation-router
